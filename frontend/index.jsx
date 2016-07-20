@@ -3,11 +3,10 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HelloComponent from 'components/helloWord/index.jsx';
 
-var Hello = React.createClass({
-    render() {
-        return <h1>Hello</h1>
-    }
-});
+require('style/init.styl');
+
+var Hello = new HelloComponent(React);
 
 ReactDOM.render(<Hello/>, document.querySelector('.container'));
