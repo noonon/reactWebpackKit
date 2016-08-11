@@ -12,7 +12,7 @@ module.exports = {
 
     context: path.join(__dirname, 'frontend'),
     entry: [
-        './index.jsx'
+        './index.js'
     ],
     output: {
         path: path.join(__dirname, 'public', 'build'),
@@ -22,7 +22,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.jsx$/,
+                test: /\.js$/,
                 loader: 'babel',
                 exclude: /node_modules/,
                 query: {
