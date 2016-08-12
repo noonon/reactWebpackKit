@@ -1,14 +1,23 @@
-import React, { Component } from 'react'
 
-class Calendar extends Component {
-    render() {
+module.exports = function(React,actions, connect, components){
 
-        return (
-            <div>
-                <h2>Calendar</h2>
-            </div>
-        )
+    var HelloWords = components.HelloWord;
+
+
+    class Bar extends React.Component {
+        render() {
+
+            return (
+                <div>
+                    <h2>Bar</h2>
+                    <HelloWords />
+                </div>
+            )
+        }
     }
-}
 
-module.exports = Calendar;
+    return connect(
+        /*            state => ({ number: state.count.number }),
+         { increase, decrease }*/
+    )(Bar);
+};

@@ -1,10 +1,13 @@
-var components = require.context(".", true, /init\.js/),
-    result = {};
+module.exports = function(React,actions, connect){
 
-components.keys().map(function(item){
-    var name = (item).match(/[a-zA-Z]+/i);
+    var components = require.context(".", true, /init\.js/),
+        result = {};
 
-    result[name] = components(item);
-});
+    components.keys().map(function(item){
+        var name = (item).match(/[a-zA-Z]+/i);
 
-module.exports = result;
+        result[name] = components(item)(React,actions, connect);
+    });
+
+    return result;
+};

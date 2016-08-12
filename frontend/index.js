@@ -9,33 +9,32 @@ import DockMonitor from 'redux-devtools-dock-monitor'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import { createHashHistory } from 'history'
 import { Router, Route, IndexRoute, hashHistory, useRouterHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer,routerMiddleware, push } from 'react-router-redux'
-
+import { syncHistoryWithStore, routerReducer,routerMiddleware } from 'react-router-redux'
 import components from './components'
 import routes from './routes'
+import actions from './actions'
 import {count as reducers} from './reducers'
 
-const reduxRouterMiddleware = routerMiddleware(hashHistory)
+const componentsObj = components(React, actions,connect);
 
+const reduxRouterMiddleware = routerMiddleware(hashHistory);
 const reducer = combineReducers({
     count: reducers,
     routing: routerReducer
 });
-
 const DevTools = createDevTools(
     <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
         <LogMonitor theme="tomorrow" preserveScrollTop={false} />
     </DockMonitor>
 );
-
 const rootRoute = {
     childRoutes: [ {
         path: '/',
-        component: components.App,
-        childRoutes: routes
+        component: componentsObj.App,
+        childRoutes: routes(React, actions,connect, componentsObj)
     } ]
 };
 

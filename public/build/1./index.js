@@ -1,17 +1,11 @@
 webpackJsonp([1],{
 
-/***/ 740:
-/***/ function(module, exports, __webpack_require__) {
+/***/ 736:
+/***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(136);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19,35 +13,41 @@ webpackJsonp([1],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Calendar = function (_Component) {
-	    _inherits(Calendar, _Component);
+	module.exports = function (React, actions, connect, components) {
 
-	    function Calendar() {
-	        _classCallCheck(this, Calendar);
+	    var HelloWords = components.HelloWord;
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Calendar).apply(this, arguments));
-	    }
+	    var Bar = function (_React$Component) {
+	        _inherits(Bar, _React$Component);
 
-	    _createClass(Calendar, [{
-	        key: 'render',
-	        value: function render() {
+	        function Bar() {
+	            _classCallCheck(this, Bar);
 
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    'Calendar'
-	                )
-	            );
+	            return _possibleConstructorReturn(this, Object.getPrototypeOf(Bar).apply(this, arguments));
 	        }
-	    }]);
 
-	    return Calendar;
-	}(_react.Component);
+	        _createClass(Bar, [{
+	            key: "render",
+	            value: function render() {
 
-	module.exports = Calendar;
+	                return React.createElement(
+	                    "div",
+	                    null,
+	                    React.createElement(
+	                        "h2",
+	                        null,
+	                        "Bar"
+	                    ),
+	                    React.createElement(HelloWords, null)
+	                );
+	            }
+	        }]);
+
+	        return Bar;
+	    }(React.Component);
+
+	    return connect()(Bar);
+	};
 
 /***/ }
 

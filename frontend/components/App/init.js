@@ -1,16 +1,21 @@
 /**
  * Created by noonon on 8/11/16.
  */
-import React, { Component } from 'react'
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                {this.props.children }
-            </div>
-        )
+
+module.exports = function(React,actions, connect){
+    class App extends React.Component {
+        render() {
+            return (
+                <div>
+                    {this.props.children }
+                </div>
+            )
+        }
     }
-}
 
-module.exports = App;
+    return connect(
+/*            state => ({ number: state.count.number }),
+        { increase, decrease }*/
+    )(App)
+};
