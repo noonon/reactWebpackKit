@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "gulp run"
+    "start": " webpack-dev-server --hot --compress --config webpack.dev.config.js --inline --content-base public/"
   },
   "dependencies": {
     "babel": "^6.5.2",
